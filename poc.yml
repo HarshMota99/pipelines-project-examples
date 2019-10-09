@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github
-      path: Manojtuguru/pipelines-project-examples
+      path: HarshMota99/pipelines-project-examples
       branches: 
         include: master
       buildon:
