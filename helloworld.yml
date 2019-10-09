@@ -16,6 +16,7 @@ pipelines:
         configuration:
           inputResources:
           #  - name: myApprepo1
+	     - name: pipelines-project-examples
         execution:
           onExecute:
             - printenv
