@@ -2,7 +2,7 @@ resources:
   - name: mavenrepo
     type: GitRepo
     configuration:
-      gitProvider: github
+      gitProvider: git_integration
       path: HarshMota99/pipelines-project-examples
       branches: 
         include: master
