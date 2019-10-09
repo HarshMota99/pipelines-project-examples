@@ -1,0 +1,23 @@
+resources:
+  - name: emailRepo
+    type: GitRepo
+    configuration:
+      path: Manojtuguru/pipelines-project-examples
+      gitProvider: github
+      sha: master
+
+pipelines:
+  - name: email_notifications
+    steps:
+      - name: email_onStart
+        type: Bash
+        configuration: 
+          integrations:
+            - name : smtp   #replace this with your smtp integration name
+        execution:
+          onStart:
+            - echo "starting"
+            - send_notification smtp --recipients "manojtuguru@gmail.com"
+          onExecute:
+            - echo "hello world"
+            - send_notification smtp --recipients "manojtuguru@gmail.com"

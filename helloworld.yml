@@ -1,0 +1,43 @@
+
+resources:
+  - name: myApprepo1
+    type: GitRepo
+    configuration:
+      gitProvider: manoj_github   # replace with your integration
+      path: pipelines-project-examples/app    # replace with your repository name
+      branches:
+        include: master
+
+pipelines:
+  - name: basic_pipeline
+    steps:
+      - name: step_1
+        type: Bash
+        configuration:
+          inputResources:
+          #  - name: myApprepo1
+        execution:
+          onExecute:
+            - printenv
+            - echo $res_myApprepo1_commitSha
+            - add_run_variables first_stepid=$step_id
+
+      - name: step_2
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step_1
+        execution:
+          onExecute:
+            - echo "Hello world"
+            - echo $first_stepid
+
+      - name: step_3
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: step_2
+        execution:
+          onExecute:
+            - echo "Hello world"
+            - echo $first_stepid

@@ -1,0 +1,18 @@
+resources:
+  - name: project_example
+    type: GitRepo
+    configuration:
+      gitProvider:  github
+      path: manojtuguru/project-examples
+
+pipelines:
+  - name : Artifactoryupgrade
+    steps:
+      - name : CheckArtRunning
+        type : Bash
+        execution:
+         onExecute:
+          - echo "Check if the instance is running"
+          - curl http://35.231.3.112:8081/artifactory/api/system/ping
+         onSuccess:
+          - done "success" 
