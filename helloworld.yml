@@ -3,8 +3,8 @@ resources:
   - name: myApprepo1
     type: GitRepo
     configuration:
-      gitProvider: HarshMota99   # replace with your integration
-      path: pipelines-project-examples    # replace with your repository name
+      gitProvider: git_integration   # replace with your integration
+      path: HarshMota99/pipelines-project-examples    # replace with your repository name
       branches:
         include: master
 
